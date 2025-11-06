@@ -15,13 +15,13 @@ The system is composed of several core components that work together to provide 
 
 ## Job Lifecycle
 
-A job progresses through several states during its lifecycle:
-
-1.  **`pending`**: The initial state of a job after it has been enqueued.
-2.  **`processing`**: The state of a job when it is being executed by a worker.
-3.  **`completed`**: The state of a job that has been successfully executed.
-4.  **`failed`**: The state of a job that has failed but can be retried.
-5.  **`dead`**: The state of a job that has exhausted all its retry attempts.
+| **State** | **Description** |
+| --- | --- |
+| `pending` | Waiting to be picked up by a worker |
+| `processing` | Currently being executed |
+| `completed` | Successfully executed |
+| `failed` | Failed, but retryable |
+| `dead` | Permanently failed (moved to DLQ) |
 
 ## Database Schema
 
